@@ -150,7 +150,9 @@ public class UI extends JFrame{
           currentStudentIndex = 0;
           textFieldCalification.setEditable(true);
           buttonSubmitCalification.setEnabled(true);
+          buttonPrevStudent.setEnabled(false);
           getStudentsData();
+          loadStudentDataFields();
       }
     });
     add(buttonReloadFrame);
@@ -232,12 +234,20 @@ public class UI extends JFrame{
       if(!studentsList.isEmpty()) {
         currentStudentIndex = 0;
         loadStudentDataFields();
+        buttonPrevStudent.setEnabled(true);
+        if(studentsList.size() > 1){
+          buttonNextStudent.setEnabled(true);
+        } else {
+          buttonNextStudent.setEnabled(false);
+        }
+        buttonPrevStudent.setEnabled(false);
       }
     } catch(IOException e){
       showPopUp(e.getMessage() + " try the reload button");
       textFieldCalification.setEditable(false);
       buttonSubmitCalification.setEnabled(false);
       buttonPrevStudent.setEnabled(false);
+      buttonNextStudent.setEnabled(false);
     }
   }
 }

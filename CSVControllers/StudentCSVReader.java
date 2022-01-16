@@ -26,8 +26,7 @@ public class StudentCSVReader{
         ArrayList<Student> studentsList = new ArrayList<Student>();
         Student student = null;
 
-        try{
-            BufferedReader br = new BufferedReader(new FileReader(file));
+        try(BufferedReader br = new BufferedReader(new FileReader(file));){
             String st = st = br.readLine();
             
             while ((st = br.readLine()) != null){
@@ -35,6 +34,7 @@ public class StudentCSVReader{
                 student = new Student(csvRows[0], csvRows[1], csvRows[2], csvRows[3]);
                 studentsList.add(student);
             }
+            br.close();
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -56,10 +56,9 @@ public class StudentCSVReader{
     }
 
     private boolean columnsMatch(){
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
+        try (BufferedReader br = new BufferedReader(new FileReader(file));){
             String columns = br.readLine().trim();
-
+            br.close(); 
             if (columnSchema.equals(columns)) {
                 return true; 
             }
