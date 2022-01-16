@@ -56,16 +56,16 @@ public class StudentCSVReader{
     }
 
     private boolean columnsMatch(){
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
+        try (BufferedReader br = new BufferedReader(new FileReader(file));) {
             String columns = br.readLine().trim();
-
             if (columnSchema.equals(columns)) {
                 return true; 
             }
             
         } catch(IOException e) {
             System.out.println(e);
+        } finally{
+            br.close();
         }
         return false;
     }

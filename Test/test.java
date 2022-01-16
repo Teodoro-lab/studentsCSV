@@ -48,16 +48,6 @@ public class test{
     public static void main(String[] args){
         testStudentCSVReader();
         testCalificationCSVWritter();
-        // File file = new File("Calificaciones.csv");
-        // try {
-        // FileWriter fw = new FileWriter(file);
- 
-	    // for (int i = 0; i < 10; i++) {
-		//     fw.write("something");
-	    // }
- 
-	    // fw.close();}
-        // catch (IOException e){System.out.println("holi");}
     }
 }
 
