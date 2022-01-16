@@ -46,7 +46,7 @@ public class test{
     }
 
     public static void main(String[] args){
-        // testStudentCSVReader();
+        testStudentCSVReader();
         testCalificationCSVWritter();
         // File file = new File("Calificaciones.csv");
         // try {

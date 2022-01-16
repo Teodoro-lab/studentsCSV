@@ -237,6 +237,7 @@ public class UI extends JFrame{
       showPopUp(e.getMessage() + " try the reload button");
       textFieldCalification.setEditable(false);
       buttonSubmitCalification.setEnabled(false);
+      buttonPrevStudent.setEnabled(false);
     }
   }
 }
