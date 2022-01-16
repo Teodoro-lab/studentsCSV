@@ -36,9 +36,8 @@ public class UI extends JFrame{
     setBounds(10,10,700,500);
     setTitle("Generador de CSV de calificaciones");
     setResizable(true);
+    //setDefaultCloseOperation(EXIT_ON_CLOSE);
     WindowClosingEventHandler();
-
-
     /*This is where all our custom methods and code are*/
     calificationTextField();
     generateCalificationsCSV();
@@ -46,9 +45,12 @@ public class UI extends JFrame{
     studentDataFields();
     moveToNextStudent();
     moveToPrevStudent();
+
     submitCalification();
     setVisible(true);
+
     getStudentsData();
+
     /* Finish of the customn methods*/
   }
 
@@ -59,7 +61,7 @@ public class UI extends JFrame{
         public void windowClosing(WindowEvent e) { 
           if (calificationsCSVgenerated){
             setDefaultCloseOperation(EXIT_ON_CLOSE);
-          }else {
+          } else {
             int confirmed = JOptionPane.showConfirmDialog(null, 
             "Are you sure you want to exit this application without generating your califications csv?", 
             "Exit Program Message Box",
@@ -235,7 +237,6 @@ public class UI extends JFrame{
       showPopUp(e.getMessage() + " try the reload button");
       textFieldCalification.setEditable(false);
       buttonSubmitCalification.setEnabled(false);
-      buttonNextStudent.setEnabled(false);
       buttonPrevStudent.setEnabled(false);
     }
   }
