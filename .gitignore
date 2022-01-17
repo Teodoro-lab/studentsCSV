@@ -1,1 +1,3 @@
 *.class
+.vscode
+eclipse-formatter.xml
