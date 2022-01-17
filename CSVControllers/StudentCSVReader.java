@@ -8,13 +8,8 @@ import Models.*;
 import java.util.ArrayList;
 
 public class StudentCSVReader{
-    private File file;
-    private String columnSchema;
-
-    public StudentCSVReader(){
-        this.file = new File("Lista Alumnos.csv");
-        this.columnSchema = "matricula,primer apellido,segundo apellido,nombres";
-    }
+    private File file = new File("Lista Alumnos.csv");
+    private String columnSchema = "matricula,primer apellido,segundo apellido,nombres";
 
     public ArrayList<Student> getStudentsList() throws IOException{
         try{
@@ -26,8 +21,9 @@ public class StudentCSVReader{
         ArrayList<Student> studentsList = new ArrayList<Student>();
         Student student = null;
 
-        try(BufferedReader br = new BufferedReader(new FileReader(file));){
-            String st = st = br.readLine();
+        try{
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String st = br.readLine();
             
             while ((st = br.readLine()) != null){
                 String[] csvRows = st.split(",");

@@ -11,15 +11,9 @@ import Models.*;
 
 
 public class CalificationCSVWriter{
-    private File file;
-    private String columSchema;
-    private String subjectName;
-
-    public CalificationCSVWriter(){
-        this.file = new File("Calificaciones.csv");
-        this.columSchema = "matricula,nombre asignatura, calificacion";
-        this.subjectName = "Diseño de Sofware";
-    }
+    private File file = new File("Calificaciones.csv");
+    private String columSchema = "matricula,nombre asignatura, calificacion";
+    private String subjectName = "Diseño de Sofware";
 
     public void writeCSV(ArrayList<Student> studentsList) throws IOException {
         String row;
